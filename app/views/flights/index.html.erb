@@ -6,5 +6,7 @@
   <%= select_tag(:arrival_airport_id, options_for_select(@airport_options))%>
   <%= form.label :query, "Number of passengers:" %>
   <%= form.select :number_of_passengers, ["1", "2", "3", "4"], selected: "1" %><br>
+  <%= form.label :query, "Month:" %>
+  <%= form.select :month, Date::MONTHNAMES[1..12] %>
   <%= form.submit "Search" %>
 <% end %>
