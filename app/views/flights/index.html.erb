@@ -1,12 +1,12 @@
 <h1>Book a Flight</h1>
-<%= form_with url: "/search", method: :get do |form| %>
+<%= form_with url: "/flights", method: :get do |form| %>
   <%= form.label :query, "Departure Airport:" %>
   <%= select_tag(:departure_airport_id, options_for_select(@airport_options))%>
   <%= form.label :query, "Arrival Airport:" %>
   <%= select_tag(:arrival_airport_id, options_for_select(@airport_options))%>
-  <%= form.label :query, "Number of passengers:" %>
+  <%= form.label :query, "Number of Passengers:" %>
   <%= form.select :number_of_passengers, ["1", "2", "3", "4"], selected: "1" %><br>
-  <%= form.label :query, "Month:" %>
-  <%= form.select :month, Date::MONTHNAMES[1..12] %>
+  <%= form.label :query, "Flight Date:" %>
+  <%= select_tag(:start_datetime, options_for_select(@flights.collect { |f| f.flight_date_formatted }.uniq)) %>
   <%= form.submit "Search" %>
 <% end %>
