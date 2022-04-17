@@ -7,14 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Airport.delete_all
 Airport.reset_pk_sequence
-Airport.create([{ airport_code: 'SFO' }, { airport_code: 'NYC'}, { airport_code: 'HND'}, { airport_code: 'MEL'}, { airport_code: 'SYD'}])
+Airport.create([{ airport_code: 'MEL' }, { airport_code: 'SYD'}, { airport_code: 'ADL'}, { airport_code: 'BNE'}, { airport_code: 'PER'}])
 
 Flight.delete_all
 25.times do
   (1..5).to_a.each do |i|
     destinations = (1..5).to_a
     destinations.delete(i)
-    Flight.create(departure_airport_id: i, arrival_airport_id: destinations.sample, start_datetime: DateTime.now + rand(100..600), duration: "05:30:00")
+    Flight.create(departure_airport_id: i, arrival_airport_id: destinations.sample, start_datetime: DateTime.now + rand(100..105), duration: "02:00:00")
   end
 end
 
